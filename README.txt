@@ -1,39 +1,216 @@
-ROB ROCKS — COMPLETE SITE (MAIN + $ROCKSTR STRATEGY)
-Static site. No build step, no CLI required.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="$ROCKSTR — The Rock Machine. Trade the token, grow the vault, burn the supply. Connected to the 333 Rob Rocks on Robinhood Chain." />
+  <title>$ROCKSTR — The Rob Rocks Machine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav-wrap">
+    <nav class="nav container">
+      <a class="brand" href="#top" aria-label="Rob Rocks Strategy home">
+        <span class="brand-mark">R</span>
+        <span>ROB ROCKS</span>
+      </a>
+      <div class="nav-links">
+        <a href="#loop">The Loop</a>
+        <a href="#machine">Machine</a>
+        <a href="#vault">Vault</a>
+        <!-- TODO: replace # with the Flap link at launch -->
+        <a class="button button-small" href="#" target="_blank" rel="noreferrer">Buy on Flap ↗</a>
+      </div>
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </nav>
+  </header>
 
-STRUCTURE
-  index.html          Main page (Vision, Mine, Materials)
-  styles.css          Main page styles
-  script.js           Main page JS
-  strategy.html       $ROCKSTR strategy page (Loop, Machine, Vault)
-  strategy.css        Strategy styles (standalone, same design tokens)
-  strategy.js         Strategy JS (loop animation, machine simulation)
-  assets/
-    rob-rock.png      Rock artwork (800px, web-optimized — included)
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-noise"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">$ROCKSTR · THE ROB ROCKS STRATEGY COIN · ROBINHOOD CHAIN</p>
+          <h1>TRADE.<br />VAULT.<br /><span>BURN.</span></h1>
+          <p class="hero-text">A perpetual machine wired to the 333 Rob Rocks Genesis collection. Every $ROCKSTR trade feeds Rock acquisitions, every acquisition tightens the vault, every sale burns the supply.</p>
+          <div class="hero-actions">
+            <!-- TODO: replace # with the Flap link at launch -->
+            <a class="button" href="#" target="_blank" rel="noreferrer">Buy on Flap ↗</a>
+            <a class="text-link" href="#loop">How the loop works ↓</a>
+          </div>
+          <div class="ca-box">
+            <span class="ca-label">CA</span>
+            <!-- TODO: paste contract address at launch, e.g. 0xabc… -->
+            <code id="caAddress">TBA — LAUNCHING ON FLAP</code>
+            <button type="button" id="copyCa" hidden>COPY</button>
+          </div>
+          <div class="hero-stats">
+            <div><strong>10%</strong><span>Protocol fee</span></div>
+            <div><strong>5/3/2</strong><span>Rocks / Burn / Team</span></div>
+            <div><strong>13/333</strong><span>Vaulted at launch</span></div>
+          </div>
+        </div>
 
-DEPLOY (GitHub web UI + Vercel)
-1. github.com -> "New repository" -> name it e.g. rob-rocks-site -> Public -> Create.
-2. Click "uploading an existing file" -> drag in all files plus the assets folder
-   -> Commit.
-3. vercel.com -> "Add New... -> Project" -> import the repo -> Framework: "Other"
-   -> Deploy. The site is live.
-4. Any later change: edit or upload the file on GitHub -> Commit -> Vercel
-   redeploys automatically.
+        <!-- Signature: the living loop -->
+        <div class="hero-visual reveal delay-1" aria-hidden="true">
+          <div class="loop-ring">
+            <div class="loop-track"></div>
+            <div class="loop-dot" id="loopDot"></div>
+            <div class="loop-node" data-step="0"><b>01</b>TRADE</div>
+            <div class="loop-node" data-step="1"><b>02</b>POOL</div>
+            <div class="loop-node" data-step="2"><b>03</b>ROCK</div>
+            <div class="loop-node" data-step="3"><b>04</b>LIST</div>
+            <div class="loop-node" data-step="4"><b>05</b>BURN</div>
+            <div class="rock-disc">
+              <img class="rock-img" src="assets/rob-rock.png" alt="" />
+              <svg class="rock-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="100" cy="168" rx="62" ry="12" fill="#d8ff3f" opacity=".12"/>
+                <polygon points="100,22 148,40 174,88 164,138 126,172 72,174 34,140 26,88 54,38" fill="#565b53"/>
+                <polygon points="100,22 148,40 132,86 84,80" fill="#8a9086"/>
+                <polygon points="148,40 174,88 132,86" fill="#6f746d"/>
+                <polygon points="26,88 54,38 84,80 62,110" fill="#767b72"/>
+                <polygon points="84,80 132,86 118,132 62,110" fill="#9aa093"/>
+                <polygon points="174,88 164,138 118,132 132,86" fill="#4a4f47"/>
+                <polygon points="62,110 118,132 126,172 72,174 34,140 26,88" fill="#3a3f38"/>
+                <polygon points="118,132 164,138 126,172" fill="#2e332c"/>
+                <polygon points="100,22 84,80 54,38" fill="#c9cec4"/>
+                <polyline points="148,40 132,86 118,132" fill="none" stroke="#d8ff3f" stroke-width="2" opacity=".55"/>
+              </svg>
+            </div>
+          </div>
+          <div class="status-pill"><span></span> MACHINE ARMED</div>
+        </div>
+      </div>
+    </section>
 
-URLS AFTER DEPLOY
-  /               Main page
-  /strategy.html  Strategy page (linked from the main nav and footer as "$ROCKSTR")
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span><b>$ROCKSTR</b> ✳ THE ROB ROCKS MACHINE ✳ ROBINHOOD CHAIN ✳ BUY · VAULT · BURN ✳ </span>
+        <span><b>$ROCKSTR</b> ✳ THE ROB ROCKS MACHINE ✳ ROBINHOOD CHAIN ✳ BUY · VAULT · BURN ✳ </span>
+        <span><b>$ROCKSTR</b> ✳ THE ROB ROCKS MACHINE ✳ ROBINHOOD CHAIN ✳ BUY · VAULT · BURN ✳ </span>
+        <span><b>$ROCKSTR</b> ✳ THE ROB ROCKS MACHINE ✳ ROBINHOOD CHAIN ✳ BUY · VAULT · BURN ✳ </span>
+      </div>
+    </div>
 
-AT TOKEN LAUNCH (search strategy.html for "TODO")
-- Replace the three href="#" Flap links with the real Flap URL.
-- Replace "TBA — LAUNCHING ON FLAP" in #caAddress with the contract address.
-  The COPY button appears automatically once a real address is set.
-- Add the machine wallet address in the vault section and link it to the explorer.
+    <!-- MECHANISM -->
+    <section id="loop" class="section lime-section">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <p class="eyebrow dark">01 · HOW IT WORKS</p>
+          <h2>THE ROB ROCKS<br />MACHINE.</h2>
+        </div>
+        <div class="process-grid five">
+          <article class="process-card scroll-reveal"><span>01</span><div class="big">10%</div><h3>Trade $ROCKSTR</h3><p>Every buy and sell carries a 10% protocol fee. The fee is the fuel.</p></article>
+          <article class="process-card scroll-reveal delay-1"><span>02</span><div class="big">5/3/2</div><h3>Route the fee</h3><p>5% funds Rock acquisitions, 3% is burned directly, 2% supports the team.</p></article>
+          <article class="process-card scroll-reveal delay-2"><span>03</span><div class="big">2×</div><h3>Acquire a Rock</h3><p>Once the pool holds twice the current floor, the machine buys a Rob Rock.</p></article>
+          <article class="process-card scroll-reveal delay-3"><span>04</span><div class="big">1.5×</div><h3>Relist or vault</h3><p>The Rock returns to market at 1.5×. Unsold Rocks stay in the vault — visible forever.</p></article>
+          <article class="process-card scroll-reveal delay-3"><span>05</span><div class="big">100%</div><h3>Buy back &amp; burn</h3><p>Every unit of Rock-sale proceeds buys $ROCKSTR and burns it. Then the loop repeats.</p></article>
+        </div>
+        <p class="mechanism-note scroll-reveal">The direct 3% burn runs on every trade — the machine deflates even while it accumulates.</p>
+      </div>
+    </section>
 
-PARAMETERS SHOWN ON THE PAGE
-  10% fee -> 5% Rock pool / 3% direct burn / 2% team
-  Buy trigger: pool >= 2x floor · Relist: 1.5x · NFT sale: 100% buyback & burn
+    <!-- MACHINE -->
+    <section id="machine" class="section dark-section">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <p class="eyebrow green">02 · MACHINE OVERVIEW</p>
+          <h2>A QUICK LOOK<br />AT THE LOOP.</h2>
+        </div>
 
-LIVE DATA
-  Machine stats, vault bar and burn counter are placeholders until the pool,
-  vault and burn wallets exist. They can then be wired to the Robinhood Chain RPC.
+        <div class="machine-stats scroll-reveal">
+          <div><p class="label">CURRENT PHASE</p><strong><i class="pulse"></i>Pre-launch</strong></div>
+          <div><p class="label">VAULT HOLDINGS</p><strong>13 Rocks · seeded</strong></div>
+          <div><p class="label">LATEST SALE</p><strong>Awaiting first sale</strong></div>
+          <div><p class="label">BURNED SO FAR</p><strong id="burnTotal">0 $ROCKSTR</strong></div>
+        </div>
+
+        <div class="machine-preview scroll-reveal">
+          <div class="mine-window">
+            <div class="window-top"><span></span><span></span><span></span><b>ROB ROCKS MACHINE · SIMULATION</b></div>
+            <div class="window-content">
+              <div class="rock-mini" id="simRock">
+                <img class="rock-img" src="assets/rob-rock.png" alt="Rob Rock in the machine" />
+                <svg class="rock-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <polygon points="100,22 148,40 174,88 164,138 126,172 72,174 34,140 26,88 54,38" fill="#565b53"/>
+                  <polygon points="100,22 148,40 132,86 84,80" fill="#8a9086"/>
+                  <polygon points="84,80 132,86 118,132 62,110" fill="#9aa093"/>
+                  <polygon points="62,110 118,132 126,172 72,174 34,140 26,88" fill="#3a3f38"/>
+                  <polygon points="100,22 84,80 54,38" fill="#c9cec4"/>
+                </svg>
+              </div>
+              <div class="mine-info">
+                <p class="label">MACHINE STATE</p>
+                <h3 id="simPhase">IDLE</h3>
+                <p>POOL <strong id="simPool">0.0000 / 0.0016 ETH</strong></p>
+                <div class="mine-progress show"><span id="simBar"></span></div>
+                <button type="button" id="simButton">RUN THE LOOP</button>
+              </div>
+              <div class="destinations ledger">
+                <p class="label">ACTIVITY</p>
+                <div id="simLedger"><div class="ledger-empty">Machine output appears here <span>—</span></div></div>
+              </div>
+            </div>
+          </div>
+          <p class="prototype-note">Simulation with example values — the live machine starts with the $ROCKSTR launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VAULT -->
+    <section id="vault" class="section vault-section">
+      <div class="container">
+        <div class="section-heading light-heading scroll-reveal">
+          <p class="eyebrow green">03 · THE VAULT</p>
+          <h2>333 ROCKS.<br />THE MACHINE COLLECTS.</h2>
+        </div>
+        <div class="vault-grid scroll-reveal">
+          <p class="vault-copy">The vault doesn't start empty: 13 Rocks were seeded by the creator on day one. Every Rock the machine acquires and doesn't resell joins them — on-chain and visible. With only 333 Genesis Rocks in existence, every vaulted Rock permanently tightens the collection's supply.</p>
+          <div class="vault-panel">
+            <div class="vault-bar"><span id="vaultFill" style="width:3.9%"></span></div>
+            <div class="vault-meta"><span>13 / 333 ROCKS VAULTED</span><span>3.9%</span></div>
+            <div class="vault-row"><span>Seeded by the creator</span><b>13</b></div>
+            <div class="vault-row"><span>Acquired by the machine</span><b>0</b></div>
+            <div class="vault-row"><span>Relisted at 1.5×</span><b>0</b></div>
+            <div class="vault-row"><span>Sold → burned</span><b>0 ETH</b></div>
+            <!-- TODO: add the machine wallet address and point href at the Robinhood Chain explorer -->
+            <div class="vault-row"><span>Machine wallet</span><b><a class="vault-link" href="#" target="_blank" rel="noreferrer">TBA — verify on-chain ↗</a></b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container cta-inner scroll-reveal">
+        <p class="eyebrow dark">FEED THE MACHINE</p>
+        <h2>BUY AND SELL<br />ROCKS. FOREVER.</h2>
+        <div class="cta-actions">
+          <!-- TODO: replace # with the Flap link at launch -->
+          <a class="button dark-button" href="#" target="_blank" rel="noreferrer">Buy $ROCKSTR on Flap ↗</a>
+          <a class="button ghost-button" href="https://opensea.io/collection/rob-rocks/overview" target="_blank" rel="noreferrer">View target collection ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="brand"><span class="brand-mark">R</span><span>ROB ROCKS</span></div>
+      <p>Built on Robinhood Chain.</p>
+      <div class="footer-links">
+        <a href="https://opensea.io/collection/rob-rocks/overview" target="_blank" rel="noreferrer">OpenSea</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+    <p class="disclaimer container">$ROCKSTR is a strategy coin connected to the Rob Rocks collection. Digital assets involve significant risk, including total loss. Nothing on this page is financial advice. Not affiliated with OpenSea or Robinhood.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
