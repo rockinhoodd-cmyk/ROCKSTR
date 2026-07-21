@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Rob Rocks — 333 Genesis Rocks on Robinhood Chain." />
+  <title>Rob Rocks — The Foundation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav-wrap">
+    <nav class="nav container">
+      <a class="brand" href="#top" aria-label="Rob Rocks home">
+        <span class="brand-mark">R</span>
+        <span>ROB ROCKS</span>
+      </a>
+      <div class="nav-links">
+        <a href="#vision">Vision</a>
+        <a href="#materials">Materials</a>
+        <a href="#mine">The Mine</a>
+        <a href="strategy.html">$ROCKSTR</a>
+        <a class="button button-small" href="https://opensea.io/collection/rob-rocks/overview" target="_blank" rel="noreferrer">View on OpenSea</a>
+      </div>
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-noise"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">333 GENESIS ROCKS · ROBINHOOD CHAIN</p>
+          <h1>EVERYTHING<br />STARTS WITH<br /><span>A ROCK.</span></h1>
+          <p class="hero-text">One shape. Ten materials. A sold-out genesis collection built to become the foundation of a future on-chain mining experience.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://opensea.io/collection/rob-rocks/overview" target="_blank" rel="noreferrer">Explore the Collection</a>
+            <a class="text-link" href="#vision">Discover the vision ↓</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>333</strong><span>Genesis Rocks</span></div>
+            <div><strong>10</strong><span>Materials</span></div>
+            <div><strong>138+</strong><span>Owners</span></div>
+          </div>
+        </div>
+        <div class="hero-visual reveal delay-1">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <img src="assets/rob-rock.png" alt="Rob Rock" />
+          <div class="status-pill"><span></span> FULLY REVEALED</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="section dark-section">
+      <div class="container split-grid scroll-reveal">
+        <div>
+          <p class="eyebrow green">THE VISION</p>
+          <h2>NOT JUST A<br />STATIC COLLECTIBLE.</h2>
+        </div>
+        <div class="vision-copy">
+          <p class="large-copy">Rob Rocks begins with a deliberately simple collection and grows into an interactive mining world.</p>
+          <p>Your Genesis Rock is designed to become your identity inside the mine: enter destinations, discover materials, complete expeditions and take part in community events.</p>
+          <p class="muted">The collection remains minimal. The experience grows around it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mine" class="section lime-section">
+      <div class="container">
+        <div class="section-heading scroll-reveal">
+          <p class="eyebrow dark">THE FUTURE FLOW</p>
+          <h2>FROM WALLET<br />TO THE MINE.</h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card scroll-reveal"><span>01</span><div class="icon">◉</div><h3>Connect</h3><p>Connect your wallet and detect every Rob Rock you own.</p></article>
+          <article class="process-card scroll-reveal delay-1"><span>02</span><div class="icon">◆</div><h3>Select</h3><p>Choose your Rock and a destination beneath the surface.</p></article>
+          <article class="process-card scroll-reveal delay-2"><span>03</span><div class="icon">⛏</div><h3>Mine</h3><p>Send your Rock on a timed expedition and watch progress unfold.</p></article>
+          <article class="process-card scroll-reveal delay-3"><span>04</span><div class="icon">✦</div><h3>Discover</h3><p>Reveal materials, rare fragments and future collectible items.</p></article>
+        </div>
+        <div class="mine-preview scroll-reveal">
+          <div class="mine-window">
+            <div class="window-top"><span></span><span></span><span></span><b>ROB ROCKS MINE</b></div>
+            <div class="window-content">
+              <div class="rock-mini"><img src="assets/rob-rock.png" alt="Selected Rob Rock" /></div>
+              <div class="mine-info">
+                <p class="label">SELECTED ROCK</p>
+                <h3>ROB ROCK #118</h3>
+                <p>STATUS <strong>READY</strong></p>
+                <div class="mine-progress"><span></span></div><button type="button" id="mineDemoButton">ENTER THE MINE</button>
+              </div>
+              <div class="destinations">
+                <p class="label">DESTINATIONS</p>
+                <div>Crystal Cave <span>LOCKED</span></div>
+                <div>Frozen Mine <span>LOCKED</span></div>
+                <div>Meteor Crater <span>LOCKED</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="prototype-note">Concept preview — not yet a live product.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="materials" class="section materials-section">
+      <div class="container">
+        <div class="section-heading light-heading scroll-reveal">
+          <p class="eyebrow green">THE GENESIS MATERIALS</p>
+          <h2>ONE SHAPE.<br />TEN MATERIALS.</h2>
+        </div>
+        <div class="materials-grid" id="materialsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section build-section">
+      <div class="container build-grid scroll-reveal">
+        <div>
+          <p class="eyebrow dark">BUILDING IN PUBLIC</p>
+          <h2>THE FOUNDATION<br />IS ALREADY HERE.</h2>
+        </div>
+        <div class="milestones">
+          <div class="done"><span>✓</span><p><strong>Genesis Collection</strong><small>333 / 333 minted</small></p></div>
+          <div class="done"><span>✓</span><p><strong>Full Reveal</strong><small>Ten materials discovered</small></p></div>
+          <div><span>03</span><p><strong>Mining Prototype</strong><small>Exploration and product design</small></p></div>
+          <div><span>04</span><p><strong>Community Expeditions</strong><small>Future concept</small></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-inner scroll-reveal">
+        <p class="eyebrow">THE ROCKS HAVE LANDED</p>
+        <h2>OWN A PIECE OF<br />THE FOUNDATION.</h2>
+        <a class="button dark-button" href="https://opensea.io/collection/rob-rocks/overview" target="_blank" rel="noreferrer">View Rob Rocks on OpenSea</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="brand"><span class="brand-mark">R</span><span>ROB ROCKS</span></div>
+      <p>Built on Robinhood Chain.</p>
+      <div class="footer-links"><a href="strategy.html">$ROCKSTR Strategy</a><a href="https://opensea.io/collection/rob-rocks/overview" target="_blank" rel="noreferrer">OpenSea</a><a href="#top">Back to top ↑</a></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
